@@ -1,0 +1,7 @@
+{
+    "login":"jean-alexandre.peyroux",
+    "password":"xxxxx",
+    "authsso":"https://auth.sso.tictic.fr",
+    "proxyto":"http://wiki.sso.toctoc.fr",
+    "listen":":8080"
+}
