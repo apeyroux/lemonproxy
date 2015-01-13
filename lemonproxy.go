@@ -47,8 +47,6 @@ func main() {
 		log.Fatal(err)
 	}
 
-	log.Printf("cnx sso with %s", cf.Login)
-
 	urlProxyTo, err := url.Parse(cf.ProxyTo)
 	if err != nil {
 		log.Fatal(err)
@@ -73,6 +71,7 @@ func main() {
 	userInfo.Add("user", cf.Login)
 	userInfo.Add("password", cf.Password)
 
+	log.Printf("cnx sso with %s", cf.Login)
 	resp, err := client.PostForm(urlAuthSSO.String(), userInfo)
 	if err != nil {
 		log.Fatalf("err:%s", err)
@@ -85,7 +84,7 @@ func main() {
 		req.URL.Host = urlProxyTo.Host
 		req.Host = urlProxyTo.Host
 
-		log.Printf("load cookies ...")
+		log.Printf("load sso cookies ...")
 		for _, c := range resp.Cookies() {
 			log.Printf("%s:%s", c.Name, c.Value)
 			req.AddCookie(c)
