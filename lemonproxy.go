@@ -84,10 +84,8 @@ func main() {
 		req.URL.Host = urlProxyTo.Host
 		req.Host = urlProxyTo.Host
 
-		//log.Printf("load sso cookies ...")
 		log.Printf("render %s", req.URL.String())
 		for _, c := range resp.Cookies() {
-			log.Printf("%s:%s", c.Name, c.Value)
 			req.AddCookie(c)
 		}
 	}
